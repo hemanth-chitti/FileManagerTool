@@ -1,0 +1,164 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="news-container">
+  <ul style="font-family: 'Times New Roman', Times, serif;">
+    <li>
+      File Manager Tool 
+    </li>
+    <li>
+      Web Application for File Operations
+    </li>
+      <li>
+          Functions: Open, Rename, Compress
+      </li>
+      <li>
+        Context Menu: Displays the Operation
+      </li>
+      <li>
+        Open: Function to open folder
+      </li>
+      <li>
+        Rename: Function to rename file/folder
+      </li>
+      <li>
+        Compress:Function to compress file/folder
+      </li>
+    
+  </ul>
+</div>
+<div class="header">
+<h1> <i class="fa fa-folder" aria-hidden="true">File Manager</i></h1>
+</div>
+
+<div class="column1" style="background-color:#aaa;">
+  <div>
+<input type="button" id="copen" value="c" (click)="onSelect()" (click)="onclick()"   >
+<button class="back" (click)="onBackClick()">Back</button>
+<table *ngIf="myTreeVisible">
+  <tr  *ngFor="let items of opened">
+    <td>
+    <input type="button" (click)="onSelectSecond(items)">{{items.name}}</td>
+  </tr>
+</table>
+</div>
+</div>
+<div class="column2">
+  <div class="breadcrum">
+  </div>
+<div class="copen" class="table1" *ngIf="visible" class="content-table">
+  <table>
+    <thead>
+      <tr class="heading">
+       
+          <th>Name </th>
+          <th>Type</th>
+          <th>Path</th>
+      </tr>
+    </thead>
+       
+      <tbody>
+        <tr *ngFor="let drive of cdrive">
+          
+          <td>  
+            <input type="button" value={{drive.name}} class="mybutton" (dblclick)="doubleClick(drive)"  (click)="onSelectSecond(drive)" >
+          
+          </td>
+          
+          <td>{{drive.type}}</td>
+          <td>{{drive.path}}</td>
+          
+          
+        </tr>
+      </tbody>
+      
+    
+  </table>
+</div>
+
+<div class="firstfolderopen"  class="table2" *ngIf="visible1" class="content-table">
+  
+  <table>
+    <thead>
+      <tr class="heading">
+       
+          <th>Name </th>
+          <th>Type</th>
+          <th>Path</th>
+      </tr>
+    </thead>
+   
+
+    <tbody>
+      <tr *ngFor="let drive of firstFolderOpenData">
+        
+        <td >  
+          <input type="button" value={{drive.name}} class="mybutton" (dblclick)="doubleClick(drive)" (click)="onSelectSecond(drive)" >
+        
+        </td>
+        
+        <td>{{drive.type}}</td>
+        <td>{{drive.path}}</td>
+        
+        
+      </tr>
+    </tbody>
+      
+    
+  </table>
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="column3" style="background-color:#ccc;">
+  
+  <div class="restapis" *ngIf="formsvisible">
+    <h3><i class="fa fa-bars" ></i>Context Menu</h3><br>
+    <div class="opens" *ngIf="openVisible">  
+       <button class="open" (click)="onOpenClick()"  (click)="onclick1()">Open</button>
+    </div>
+    <br><br>
+    <button class="rename" (click)="onRenameClick()">Rename</button>
+    <br><br>
+    <button class="compress" (click)="onCompressClick()">Compress</button>
+  </div>
+
+
+
+
+
+
+<div class="renameForm" *ngIf="renamevisible">
+  
+    Enter new name to rename:
+    <br><br>
+  <input type="text" id="afteropen" >
+  <button (click)="onRenameOpenClick()"  >Submit</button>
+
+</div>
+
+<div class="compressForm" *ngIf="compressvisible">
+  
+    Enter new name to compress:
+    <br><br>
+  <input type="text" id="aftercompress" >
+  <button (click)="onCompressOpenClick()" >Submit</button>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+              
+    
+ 
